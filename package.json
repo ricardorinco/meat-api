@@ -10,7 +10,7 @@
     "author": "Ricardo Rinco",
     "license": "MIT",
     "dependencies": {
-        "mongoose": "4.13.9",
+        "mongoose": "5.8.10",
         "restify": "6.3.4"
     },
     "devDependencies": {
