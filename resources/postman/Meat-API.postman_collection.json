@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f4640c91-58e9-41f1-9ad2-0eabff765396",
+		"_postman_id": "cc22f0c1-ff97-40f7-97b6-747af4045d82",
 		"name": "Meat-API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -33,7 +33,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/users/5e32a62fc7128a1b6f629ac2",
+							"raw": "http://localhost:3000/users/5e358390f50ff623e084a746",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -41,7 +41,7 @@
 							"port": "3000",
 							"path": [
 								"users",
-								"5e32a62fc7128a1b6f629ac2"
+								"5e358390f50ff623e084a746"
 							]
 						}
 					},
@@ -104,7 +104,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/users/5e33f1ed5cbbcb29442323da",
+							"raw": "http://localhost:3000/users/5e358390f50ff623e084a746",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -112,7 +112,70 @@
 							"port": "3000",
 							"path": [
 								"users",
-								"5e33f1ed5cbbcb29442323da"
+								"5e358390f50ff623e084a746"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/merge-patch+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Peter Benjamin Parker\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/5e358390f50ff623e084a746",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"5e358390f50ff623e084a746"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/merge-patch+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/users/5e358390f50ff623e084a746",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"5e358390f50ff623e084a746"
 							]
 						}
 					},
