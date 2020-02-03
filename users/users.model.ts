@@ -1,5 +1,7 @@
+import * as bcrypt from 'bcrypt';
 import * as mongoose from 'mongoose';
 
+import { environment } from './../common/environment';
 import { validateCPF } from './../common/validators';
 
 export interface User extends mongoose.Document {
@@ -39,6 +41,21 @@ const userSchema = new mongoose.Schema({
             message: 'Path `{PATH}` is invalid ({VALUE}).'
         }
     }
-})
+});
+
+userSchema.pre('save', function (next) {
+    const user: User = this;
+
+    if (!user.isModified('password')) {
+        next();
+    } else {
+        bcrypt.hash(user.password, environment.security.saltRounds)
+            .then(hash => {
+                user.password = hash;
+                next();
+            })
+            .catch(next);
+    }
+});
 
 export const User = mongoose.model<User>('User', userSchema);
