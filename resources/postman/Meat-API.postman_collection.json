@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cc22f0c1-ff97-40f7-97b6-747af4045d82",
+		"_postman_id": "18170198-a038-4af5-96c1-db78a68adc36",
 		"name": "Meat-API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -61,7 +61,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Clark Kent\",\n\t\"email\": \"clark@dc.com\",\n\t\"password\": \"lois\"\n}",
+							"raw": "{\n\t\"name\": \"Clark Kent\",\n\t\"email\": \"clark@dc.com\",\n\t\"password\": \"lois\",\n\t\"gender\": \"Male\"\n\t\n}",
 							"options": {
 								"raw": {
 									"language": "json"
