@@ -15,13 +15,13 @@ class ReviewsRouter extends ModelRouter<Review>{
             .populate('restaurant', 'name');
     }
 
-    findById = (req, resp, next) => {
-        this.model.findById(req.params.id)
-            .populate('user', 'name')
-            .populate('restaurant', 'name')
-            .then(this.render(resp, next))
-            .catch(next);
-    }
+    // findById = (req, resp, next) => {
+    //     this.model.findById(req.params.id)
+    //         .populate('user', 'name')
+    //         .populate('restaurant', 'name')
+    //         .then(this.render(resp, next))
+    //         .catch(next);
+    // }
 
     applyRoutes(application: restify.Server){
         application.get('/reviews', this.findAll);
