@@ -8,7 +8,7 @@ export interface User extends mongoose.Document {
     name: string,
     email: string,
     password: string
-}
+};
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -50,7 +50,7 @@ const hashPassword = (obj, next) => {
             next();
         })
         .catch(next);
-}
+};
 
 const saveMiddleware = function (next) {
     const user: User = this;
@@ -59,7 +59,7 @@ const saveMiddleware = function (next) {
     } else {
         hashPassword(user, next);
     }
-}
+};
 
 const updateMiddleware = function (next) {
     if(!this.getUpdate().password){
@@ -67,7 +67,7 @@ const updateMiddleware = function (next) {
     } else {
         hashPassword(this.getUpdate(), next);
     }
-}
+};
 
 userSchema.pre('save', function (next) {
     if (!this.getUpdate().password) {
