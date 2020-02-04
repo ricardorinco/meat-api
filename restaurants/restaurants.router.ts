@@ -7,7 +7,7 @@ import { Restaurant } from './restaurants.model';
 class RestaurantsRouter extends ModelRouter<Restaurant> {
 
     constructor() {
-        super(Restaurant)
+        super(Restaurant);
     }
 
     findMenu = (req, resp, next) => {

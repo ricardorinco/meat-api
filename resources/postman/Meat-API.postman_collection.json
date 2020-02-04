@@ -243,6 +243,86 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Get Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Reviews by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/reviews/5e39fcec39465e21e0cae0ab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews",
+								"5e39fcec39465e21e0cae0ab"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Review",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"date\": \"2020-02-04\",\n    \"rating\": 5,\n    \"comments\": \"Hey you, get your damn hands off, oh. I hope so. Silence Earthling. my name is Darth Vader. I'm am an extra-terrestrial from the planet Vulcan. Time machine, I haven't invented any time machine. Well, Biff.\",\n    \"user\": \"5e3584f1c58ccb04acc64b57\",\n    \"restaurant\": \"5e39f76be8ff8c34b8e2f9e9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Users",
 			"item": [
 				{
