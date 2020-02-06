@@ -329,7 +329,13 @@
 					"name": "Get Users",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept-Version",
+								"value": "1.0.0",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:3000/users",
 							"protocol": "http",
@@ -339,6 +345,43 @@
 							"port": "3000",
 							"path": [
 								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users - v2.0.0",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Version",
+								"value": "2.0.0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/users?email=clark@dc.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "clark@dc.com"
+								}
 							]
 						}
 					},
