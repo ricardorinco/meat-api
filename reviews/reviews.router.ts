@@ -1,4 +1,3 @@
-import { environment } from './../common/environment';
 import * as mongoose from 'mongoose'
 import * as restify from 'restify'
 
