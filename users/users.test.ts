@@ -34,18 +34,49 @@ test('post /users', () => {
     return request(address)
         .post('/users')
         .send({
-            name: 'User',
-            email: 'user@email.com',
+            name: 'User One',
+            email: 'user-one@email.com',
             password: 'qwerty',
             cpf: '962.116.531-82'
         })
         .then(response => {
             expect(response.status).toBe(200);
             expect(response.body._id).toBeDefined();
-            expect(response.body.name).toBe('usuario1');
-            expect(response.body.email).toBe('usuario1@email.com');
+            expect(response.body.name).toBe('User One');
+            expect(response.body.email).toBe('user-one@email.com');
             expect(response.body.cpf).toBe('962.116.531-82');
             expect(response.body.password).toBeUndefined();
+        })
+        .catch(fail);
+})
+
+test('get /users/aaaaa - not found', () => {
+    return request(address)
+        .get('/users/aaaaa')
+        .then(response => {
+            expect(response.status).toBe(404)
+        })
+        .catch(fail);
+})
+
+test('patch /users/:id', () => {
+    return request(address)
+        .post('/users')
+        .send({
+            name: 'User Two',
+            email: 'user-two@email.com',
+            password: 'qwerty'
+        })
+        .then(response => request(address)
+            .patch(`/users/${response.body._id}`)
+            .send({name: 'User Two Patch'})
+        )
+        .then(response => {
+            expect(response.status).toBe(200)
+            expect(response.body._id).toBeDefined()
+            expect(response.body.name).toBe('User Two Patch')
+            expect(response.body.email).toBe('user-two@email.com')
+            expect(response.body.password).toBeUndefined()
         })
         .catch(fail);
 })
