@@ -12,7 +12,7 @@ export class Server {
 
     bootstrap(routers: Router[] = []): Promise<Server> {
         (<any>mongoose).Promise = global.Promise;
-        return this.initializeDb().then(() => 
+        return this.initializeDb().then(() =>
             this.initRoutes(routers).then(() => this)
         );
     }
@@ -39,7 +39,7 @@ export class Server {
                 for (let router of routers) {
                     router.applyRoutes(this.application);
                 }
-                
+
                 this.application.listen(environment.server.port, () => {
                     resolve(this.application);
                 });
@@ -49,6 +49,10 @@ export class Server {
                 reject(error);
             }
         });
+    }
+
+    shutdown() {
+        return mongoose.disconnect().then(() => this.application.close());
     }
 
 }

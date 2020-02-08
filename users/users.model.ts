@@ -78,19 +78,6 @@ const updateMiddleware = function (next) {
     }
 };
 
-userSchema.pre('save', function (next) {
-    if (!this.getUpdate().password) {
-        next();
-    } else {
-        bcrypt.hash(this.getUpdate().password, environment.security.saltRounds)
-            .then(hash => {
-                this.getUpdate().password = hash;
-                next();
-            })
-            .catch(next);
-    }
-});
-
 userSchema.pre('save', saveMiddleware);
 userSchema.pre('findOneAndUpdate', updateMiddleware);
 userSchema.pre('update', updateMiddleware);
