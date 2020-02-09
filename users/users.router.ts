@@ -1,5 +1,6 @@
 import * as restify from 'restify';
 
+import { authenticate } from './../security/auth.handler';
 import { ModelRouter } from './../common/model-router';
 import { User } from './users.model';
 
@@ -32,6 +33,7 @@ class UsersRouter extends ModelRouter<User> {
         application.get({ path: `${this.basePath}`, version: '1.0.0' }, this.findAll);
         application.get(`${this.basePath}/:id`, [this.validateId, this.findById]);
         application.post(`${this.basePath}`, this.save);
+        application.post(`${this.basePath}/authenticate`, authenticate);
         application.put(`${this.basePath}/:id`, [this.validateId, this.replace]);
         application.patch(`${this.basePath}/:id`, [this.validateId, this.update]);
         application.del(`${this.basePath}/:id`, [this.validateId, this.delete]);
