@@ -1,24 +1,8 @@
 import 'jest';
+
 import * as request from 'supertest';
 
-import { environment } from './../common/environment';
-import { usersRouter } from './users.router';
-import { Server } from './../server/server';
-import { User } from './users.model';
-
-let address: string;
-let server: Server;
-
-beforeAll(() => {
-    environment.db.url = process.env.DB_URL || 'mongodb://localhost/meat-api-test-db';
-    environment.server.port = process.env.SERVER_PORT || 3001;
-    address = `http://localhost:${environment.server.port}`;
-    server = new Server();
-
-    return server.bootstrap([usersRouter])
-        .then(() => User.remove({}).exec())
-        .catch(console.error);
-})
+let address: string = (<any>global).address
 
 test('get /users', () => {
     return request(address)
@@ -35,6 +19,7 @@ test('post /users', () => {
         .post('/users')
         .send({
             name: 'User One',
+            gender: 'Male',
             email: 'user-one@email.com',
             password: 'qwerty',
             cpf: '962.116.531-82'
@@ -43,6 +28,7 @@ test('post /users', () => {
             expect(response.status).toBe(200);
             expect(response.body._id).toBeDefined();
             expect(response.body.name).toBe('User One');
+            expect(response.body.gender).toBe('Male');
             expect(response.body.email).toBe('user-one@email.com');
             expect(response.body.cpf).toBe('962.116.531-82');
             expect(response.body.password).toBeUndefined();
@@ -54,7 +40,7 @@ test('get /users/aaaaa - not found', () => {
     return request(address)
         .get('/users/aaaaa')
         .then(response => {
-            expect(response.status).toBe(404)
+            expect(response.status).toBe(404);
         })
         .catch(fail);
 })
@@ -72,15 +58,11 @@ test('patch /users/:id', () => {
             .send({name: 'User Two Patch'})
         )
         .then(response => {
-            expect(response.status).toBe(200)
-            expect(response.body._id).toBeDefined()
-            expect(response.body.name).toBe('User Two Patch')
-            expect(response.body.email).toBe('user-two@email.com')
-            expect(response.body.password).toBeUndefined()
+            expect(response.status).toBe(200);
+            expect(response.body._id).toBeDefined();
+            expect(response.body.name).toBe('User Two Patch');
+            expect(response.body.email).toBe('user-two@email.com');
+            expect(response.body.password).toBeUndefined();
         })
         .catch(fail);
-})
-
-afterAll(() => {
-    return server.shutdown();
 })
