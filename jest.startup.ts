@@ -2,6 +2,7 @@ import * as jestCli from 'jest-cli';
 
 import { environment } from './common/environment'
 import { Restaurant } from './restaurants/restaurants.model'
+import { restaurantsRouter } from './restaurants/restaurants.router'
 import { Review } from './reviews/reviews.model'
 import { reviewsRouter } from './reviews/reviews.router'
 import { Server } from './server/server'
@@ -15,7 +16,7 @@ const beforeAllTests = () => {
     environment.server.port = process.env.SERVER_PORT || 3001;
     server = new Server();
 
-    return server.bootstrap([usersRouter, reviewsRouter])
+    return server.bootstrap([usersRouter, reviewsRouter, restaurantsRouter])
         .then(() => User.remove({}).exec())
         .then(() => Review.remove({}).exec())
         .then(() => Restaurant.remove({}).exec());
