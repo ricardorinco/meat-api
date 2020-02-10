@@ -2,11 +2,13 @@ import 'jest';
 
 import * as request from 'supertest';
 
-let address: string = (<any>global).address;
+const address: string = (<any>global).address;
+const auth: string = (<any>global).auth;
 
 test('get /restaurants', () => {
     return request(address)
         .get('/restaurants')
+        .set('Authorization', auth)
         .then(response => {
             expect(response.status).toBe(200);
             expect(response.body.items).toBeInstanceOf(Array);
@@ -17,6 +19,7 @@ test('get /restaurants', () => {
 test('get /restaurants/aaaaa - not found', () => {
     return request(address)
         .get('/restaurants/aaaaa')
+        .set('Authorization', auth)
         .then(response => {
             expect(response.status).toBe(404);
         })
@@ -26,6 +29,7 @@ test('get /restaurants/aaaaa - not found', () => {
 test('post /restaurants', () => {
     return request(address)
         .post('/restaurants')
+        .set('Authorization', auth)
         .send({
             name: 'Burger House',
             menu: [{ name: "Coke", price: 5 }]
