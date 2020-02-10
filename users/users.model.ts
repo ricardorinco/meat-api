@@ -10,8 +10,10 @@ export interface User extends mongoose.Document {
     cpf: string,
     email: string,
     password: string,
-
-    matches(password: string): boolean
+    profiles: string[],
+    
+    matches(password: string): boolean,
+    hasAny(...profiles: string[]): boolean
 };
 
 export interface UserModel extends mongoose.Model<User> {
@@ -25,17 +27,6 @@ const userSchema = new mongoose.Schema({
         maxlength: 80,
         minlength: 3
     },
-    email: {
-        type: String,
-        unique: true,
-        match: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        required: true
-    },
-    password: {
-        type: String,
-        select: false,
-        required: true
-    },
     gender: {
         type: String,
         required: false,
@@ -48,6 +39,21 @@ const userSchema = new mongoose.Schema({
             validator: validateCPF,
             message: 'Path `{PATH}` is invalid ({VALUE}).'
         }
+    },
+    email: {
+        type: String,
+        unique: true,
+        match: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        required: true
+    },
+    password: {
+        type: String,
+        select: false,
+        required: true
+    },
+    profiles: {
+        type: [String],
+        required: false
     }
 });
 
@@ -57,6 +63,10 @@ userSchema.statics.findByEmail = function (email: string, projection: string) {
 
 userSchema.methods.matches = function (password: string): boolean {
     return bcrypt.compareSync(password, this.password);
+}
+
+userSchema.methods.hasAny = function (...profiles: string[]): boolean {
+    return profiles.some(profile => this.profiles.indexOf(profile) !== -1);
 }
 
 const hashPassword = (obj, next) => {
