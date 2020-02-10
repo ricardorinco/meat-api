@@ -14,12 +14,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/restaurants",
-							"protocol": "http",
+							"raw": "{{url}}/restaurants",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"restaurants"
 							]
@@ -33,12 +31,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/restaurants/5e39f76be8ff8c34b8e2f9e9",
-							"protocol": "http",
+							"raw": "{{url}}/restaurants/5e39f76be8ff8c34b8e2f9e9",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"restaurants",
 								"5e39f76be8ff8c34b8e2f9e9"
@@ -53,12 +49,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/restaurants/5e39f76be8ff8c34b8e2f9e9/menu",
-							"protocol": "http",
+							"raw": "{{url}}/restaurants/5e39f76be8ff8c34b8e2f9e9/menu",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"restaurants",
 								"5e39f76be8ff8c34b8e2f9e9",
@@ -78,6 +72,11 @@
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -90,14 +89,18 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/restaurants",
-							"protocol": "http",
+							"raw": "{{url}}/restaurants",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"restaurants"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
 							]
 						}
 					},
@@ -113,6 +116,11 @@
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -125,12 +133,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/restaurants/5e39f624e8ff8c34b8e2f9e7",
-							"protocol": "http",
+							"raw": "{{url}}/restaurants/5e39f624e8ff8c34b8e2f9e7",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"restaurants",
 								"5e39f624e8ff8c34b8e2f9e7"
@@ -149,6 +155,11 @@
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -161,12 +172,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/restaurants/5e39f76be8ff8c34b8e2f9e9/menu",
-							"protocol": "http",
+							"raw": "{{url}}/restaurants/5e39f76be8ff8c34b8e2f9e9/menu",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"restaurants",
 								"5e39f76be8ff8c34b8e2f9e9",
@@ -186,6 +195,11 @@
 								"name": "Content-Type",
 								"type": "text",
 								"value": "application/merge-patch+json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -198,12 +212,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/restaurants/5e39f76be8ff8c34b8e2f9e9",
-							"protocol": "http",
+							"raw": "{{url}}/restaurants/5e39f76be8ff8c34b8e2f9e9",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"restaurants",
 								"5e39f76be8ff8c34b8e2f9e9"
@@ -222,15 +234,18 @@
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/restaurants/5e39f624e8ff8c34b8e2f9e7",
-							"protocol": "http",
+							"raw": "{{url}}/restaurants/5e39f624e8ff8c34b8e2f9e7",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"restaurants",
 								"5e39f624e8ff8c34b8e2f9e7"
@@ -251,12 +266,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/reviews",
-							"protocol": "http",
+							"raw": "{{url}}/reviews",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"reviews"
 							]
@@ -270,14 +283,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/reviews/5e39fcec39465e21e0cae0ab",
-							"protocol": "http",
+							"raw": "{{url}}/5e39fcec39465e21e0cae0ab",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
-								"reviews",
 								"5e39fcec39465e21e0cae0ab"
 							]
 						}
@@ -294,6 +304,11 @@
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -306,12 +321,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/reviews",
-							"protocol": "http",
+							"raw": "{{url}}/reviews",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"reviews"
 							]
@@ -334,15 +347,18 @@
 								"key": "Accept-Version",
 								"value": "1.0.0",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/users",
-							"protocol": "http",
+							"raw": "{{url}}/users",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users"
 							]
@@ -373,12 +389,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/users?email=clark@dc.com",
-							"protocol": "http",
+							"raw": "{{url}}/users?email=clark@dc.com",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users"
 							],
@@ -396,14 +410,18 @@
 					"name": "Get User by Id",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:3000/users/5e358390f50ff623e084a746",
-							"protocol": "http",
+							"raw": "{{url}}/users/5e358390f50ff623e084a746",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"5e358390f50ff623e084a746"
@@ -422,11 +440,16 @@
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"Clark Kent\",\n\t\"email\": \"clark@dc.com\",\n\t\"password\": \"lois\",\n\t\"gender\": \"Male\",\n\t\"cpf\": \"789.472720-27\",\n\t\"profiles\": [\n\t\t\"admin\"\n\t]\n}",
+							"raw": "{\n\t\"name\": \"Clark Kent\",\n\t\"email\": \"clark@dc.com\",\n\t\"password\": \"$2b$10$uQxLry/k2aL73DSLnFchMOdZ.XlGhp4Cr6k1hugKQt8dm8rjxf2GC\",\n\t\"gender\": \"Male\",\n\t\"cpf\": \"789.472720-27\",\n\t\"profiles\": [\n\t\t\"admin\",\n\t\t\"user\"\n\t]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -434,12 +457,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/users",
-							"protocol": "http",
+							"raw": "{{url}}/users",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users"
 							]
@@ -449,6 +470,19 @@
 				},
 				{
 					"name": "User Authenticate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "10fabac5-aba4-4221-bebe-685fe513a110",
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"pm.environment.set('Token', data.accessToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -469,12 +503,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/users/authenticate",
-							"protocol": "http",
+							"raw": "{{url}}/users/authenticate",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"authenticate"
@@ -493,6 +525,11 @@
 								"name": "Content-Type",
 								"value": "application/json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -505,12 +542,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/users/5e358390f50ff623e084a746",
-							"protocol": "http",
+							"raw": "{{url}}/users/5e358390f50ff623e084a746",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"5e358390f50ff623e084a746"
@@ -529,6 +564,11 @@
 								"name": "Content-Type",
 								"value": "application/merge-patch+json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"body": {
@@ -541,12 +581,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/users/5e358390f50ff623e084a746",
-							"protocol": "http",
+							"raw": "{{url}}/users/5e358390f50ff623e084a746",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"5e358390f50ff623e084a746"
@@ -565,15 +603,18 @@
 								"name": "Content-Type",
 								"value": "application/merge-patch+json",
 								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/users/5e358390f50ff623e084a746",
-							"protocol": "http",
+							"raw": "{{url}}/users/5e358390f50ff623e084a746",
 							"host": [
-								"localhost"
+								"{{url}}"
 							],
-							"port": "3000",
 							"path": [
 								"users",
 								"5e358390f50ff623e084a746"
