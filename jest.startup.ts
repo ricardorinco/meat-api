@@ -12,7 +12,7 @@ import { usersRouter } from './users/users.router'
 let server: Server;
 
 const beforeAllTests = () => {
-    environment.db.url = 'mongodb://localhost/meat-api-test-db';
+    environment.db.url = 'mongodb://localhost:27017/meat-api-test-db';
     environment.server.port = process.env.SERVER_PORT || 3001;
     server = new Server();
 

@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  nosql.data:
+    image: mongo
+    container_name: meatAPIDB
+    ports:
+      - 27017:27017
