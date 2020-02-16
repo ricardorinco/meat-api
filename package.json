@@ -4,6 +4,7 @@
     "description": "API de Restaurantes",
     "main": "index.js",
     "scripts": {
+        "build": "tsc",
         "build:tsc": "tsc -w",
         "docker:mongo": "docker-compose up",
         "nodemon": "nodemon dist/main.js",
